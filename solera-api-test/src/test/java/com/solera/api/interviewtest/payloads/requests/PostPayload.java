@@ -3,12 +3,17 @@ package com.solera.api.interviewtest.payloads.requests;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PostPayload {
+// Visual representation of what the payload should look like	
 //	{
 //		title: 'foo',
 //	    body: 'bar',
 //	    userId: 1
 //	}
 	
+	// variables that represent elements to be passed within the JSON payload.
+	// variable names exactly match the names of elements within the JSON payload
+					
+	// @JsonProperty is used to identify to jackson that it is a variable to be passed into the JSON payload.
 	@JsonProperty
 	private String title;
 	@JsonProperty
@@ -29,13 +34,25 @@ public class PostPayload {
 		return userId;
 	}
 	
+	/**
+	 * @param title
+	 * @param body
+	 * @param userId
+	 * 
+	 * Constructor method for the object
+	 */
 	private PostPayload(String title, String body, int userId){
 		this.title = title;
 		this.body = body;
 		this.userId = userId;
 	}
 	
+	/**
+	 * @author terry.nweze
+	 * Inner class used to build the payload
+	 */
 	public static class PostPayloadBuilder {
+		// variable names match the variable names for the main class
 		private String title;
 		private String body;
 		private int userId;

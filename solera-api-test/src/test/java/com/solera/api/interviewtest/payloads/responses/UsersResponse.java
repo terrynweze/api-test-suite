@@ -1,7 +1,7 @@
 package com.solera.api.interviewtest.payloads.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+// Visual representation of the response
 //{
 //    "id": 1,
 //    "name": "Leanne Graham",
@@ -27,7 +27,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //}
 
 public class UsersResponse {
-
+	// variables that represent elements within the JSON response.
+	// variable names exactly match the names of elements within the JSON responses
+	
+	// @JsonProperty is used to identify to jackson that it is a variable associated with an element in the JSON response.
 	@JsonProperty
 	private int id;
 	
@@ -51,6 +54,10 @@ public class UsersResponse {
 	
 	@JsonProperty
 	private CompanyResponse company;
+	
+	// Setter and Getter methods for declared private variables
+	// Setters are required by Jackson in order to inject data from JSON responses into the UserResponse object being created
+	// Getter methods are used within test to retrieve the required data
 	
 	public int getId(){
 		return id;

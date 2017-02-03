@@ -23,12 +23,20 @@ public class ApiTests {
 		user = Users.getRandomUser();
 	}
 	
+	/**
+	 * Tests that the GET /users request returns a 200 response code
+	 */
 	@Test(groups = { "sanity" })
 	public void getUsersShouldReturn200(){
 		ResponseEntity<String> response = Users.getUsers();
 		Assert.assertEquals(response.getStatusCode(), HttpStatus.OK, "Incorrect response code seen for get Users request.");
 	}
 	
+	/**
+	 * Tests that a retrieved users email address is valid in format
+	 * Also prints the retrieved users address to the output console
+	 * 
+	 */
 	@Test(groups = { "sanity" })
 	public void printARandomUsersAddressAndVerifyEmailFormatIsCorrect(){
 		String email = user.getEmail();
@@ -45,6 +53,9 @@ public class ApiTests {
 		Assert.assertTrue(vu.emailValidator(email), "Users email address is not a valid format: " + email);
 	}
 	
+	/**
+	 * Tests that a users post is of valid format.
+	 */
 	@Test(groups = { "sanity" })
 	public void validateUsersPosts(){
 		UserPostsResponse[] posts = UserPosts.getUsersPosts(user.getId());
@@ -54,6 +65,9 @@ public class ApiTests {
 		}
 	}
 	
+	/**
+	 * Tests that it is possible to create a post for a user
+	 */
 	@Test(groups = { "sanity" })
 	public void CreateAValidPostFunctionsAsExpected(){
 		PostPayload payload = new PostPayload.PostPayloadBuilder()
